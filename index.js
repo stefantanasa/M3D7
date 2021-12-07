@@ -13,7 +13,12 @@ const getUsers = async () => {
 }
 
 const displayUsers = (filterType, filterText) => {
-  const usersNode = document.getElementById("user-table")
+  let userTable = document.getElementById("user-table")
+  userTable.classList.remove("collapse")
+  let nameListNode = document.getElementById("name-list")
+  nameListNode.classList.add("collapse")
+
+  const usersNode = document.getElementById("user-container")
   usersNode.innerHTML = ""
   users
     .filter((user) => {
@@ -50,6 +55,22 @@ const setUpFilter = () => {
     let filterText = eventData.target.value
     displayUsers(filterType, filterText)
   }
+}
+
+const nameDisplay = () => {
+  let nameArr = users.map((user) => user.name)
+  console.log(nameArr)
+  let nameListNode = document.getElementById("name-list")
+  nameListNode.classList.remove("collapse")
+  nameListNode.innerHTML = ""
+  nameArr.forEach((name) => {
+    let nameListItemsNode = document.createElement("li")
+    nameListItemsNode.innerText = name
+    nameListNode.appendChild(nameListItemsNode)
+  })
+
+  let userTable = document.getElementById("user-table")
+  userTable.classList.add("collapse")
 }
 window.onload = () => {
   getUsers()
