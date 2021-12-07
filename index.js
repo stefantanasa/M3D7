@@ -41,7 +41,9 @@ const displayUsers = (filterType, filterText) => {
       
       <td>${user.name}</td>
       <td>${user.username}</td>
-      <td>${user.email}</td>`
+      <td>${user.email}</td>
+      <td>${user.address.street}, ${user.address.suite}, ${user.address.city} (${user.address.postcode})</td>`
+
       usersNode.appendChild(trNode)
     })
 }
