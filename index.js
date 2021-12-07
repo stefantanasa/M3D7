@@ -4,7 +4,7 @@ window.onload = function () {
     .then((usersArray) => {
       console.log(usersArray);
       showNames(usersArray, "name");
-      usersArray.forEach((user) => console.log(user.name));
+      showAddress(usersArray);
     });
 };
 
